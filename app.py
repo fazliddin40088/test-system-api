@@ -12,6 +12,12 @@ CORS(app)
 # PostgreSQL konfiguratsiyasi
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://admin:ue2F2rR0qrwNm6alG061Gpc7T0jO9dGZ@dpg-d0ib4n0dl3ps738asjbg-a.frankfurt-postgres.render.com/testdb_ko5g'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
+    'pool_size': 5,
+    'max_overflow': 2,
+    'pool_timeout': 30,
+    'pool_recycle': 1800,
+}
 
 db = SQLAlchemy(app)
 
